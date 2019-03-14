@@ -8,11 +8,14 @@ public class Player : MonoBehaviour
     int speed, jump;
     int JumpCount = 0;
     bool isJump = false;
+    bool isHit = false;
+    int power;
 
+    public Vector3 knockback;
     public bool isItem = false;
     public int bulletCount;
-
     public GameObject bullet;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,25 @@ public class Player : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         speed = 10;
         jump = 20;
+    }
+
+    private Vector3 VectorRotation(float _angle)
+    {
+        //각도에따른 벡터값
+        _angle -= 90;
+        _angle *= -1;
+        if (_angle < 0f)
+            _angle += 360f;
+        return new Vector3(Mathf.Sin(_angle * Mathf.Deg2Rad), Mathf.Cos(_angle * Mathf.Deg2Rad), 0);
+    }
+
+    void Knockback()
+    {
+        if(isHit)
+        {
+            transform.position -= knockback;
+            knockback -= knockback * power * 10 * Time.deltaTime;
+        }
     }
 
     void Move()
@@ -72,10 +94,25 @@ public class Player : MonoBehaviour
         {
             if(Input.GetMouseButtonDown(0))
             {
-                Instantiate(bullet, transform.position, Quaternion.Euler(0,0,GetAngle(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition))));
+                Instantiate(bullet, transform.position + (Vector3.right * transform.localScale.x), Quaternion.Euler(0,0,GetAngle(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition))));
                 bulletCount--;
                 if (bulletCount <= 0)
                     isItem = false;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Bullet bullet = other.gameObject.GetComponent<Bullet>();
+            power = bullet.ReturnPower();
+            knockback = VectorRotation(GetAngle(transform.position, other.gameObject.transform.position));
+            isHit = true;
+            if(other.gameObject.transform.position.y > transform.position.y)
+            {
+                knockback.y *= -1;
             }
         }
     }
@@ -95,6 +132,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Knockback();
         Move();
         Shot();
     }

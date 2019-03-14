@@ -12,6 +12,11 @@ public class Bullet : Gun
         LifeTime = 1.0f;
     }
 
+    public int ReturnPower()
+    {
+        return power;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +29,10 @@ public class Bullet : Gun
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
