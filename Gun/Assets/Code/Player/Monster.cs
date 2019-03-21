@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : PlayObject
+public class Monster : PlayObject
 {
 
     protected override void Start()
@@ -12,7 +12,7 @@ public class Player : PlayObject
 
     void Update()
     {
-        if(!GameManager.instance.playerTurn)
+        if(GameManager.instance.playerTurn)
             return;
 
         MyTurn();
@@ -21,11 +21,7 @@ public class Player : PlayObject
 
     protected override void Action()
     {
-        if(Input.GetMouseButtonDown(1))
-        {
-            GameManager.instance.playerTurn = false;
-        }
+        GameManager.instance.playerTurn = true;
         StartCoroutine(EndTurn());
     }
-
 }
