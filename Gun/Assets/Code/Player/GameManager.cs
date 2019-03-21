@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool playerTurn;
 
+    public CardManager cardManager;
+
     void Awake()
     {
         if(instance == null)
@@ -24,11 +26,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        cardManager = GetComponent<CardManager>();
+        playerTurn = true;
     }
 }

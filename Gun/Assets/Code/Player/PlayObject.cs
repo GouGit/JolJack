@@ -4,12 +4,10 @@ using UnityEngine;
 
 public abstract class PlayObject : MonoBehaviour
 {
-
-    public bool playerTurn;
     
     protected virtual void Start()
     {
-        playerTurn = true;
+
     }
 
     protected virtual void Action()
@@ -20,16 +18,16 @@ public abstract class PlayObject : MonoBehaviour
     protected void MyTurn()
     {
         Vector3 scale = transform.localScale;
-        scale.x = 1.0f;
-        scale.y = 1.0f;
+        scale.x = 0.8f;
+        scale.y = 0.8f;
         transform.localScale = scale;
     }
 
     protected IEnumerator EndTurn()
     {
         Vector3 scale = transform.localScale;
-        scale.x = 0.8f;
-        scale.y = 0.8f;
+        scale.x = 0.6f;
+        scale.y = 0.6f;
         transform.localScale = scale;
         yield return null;
     }

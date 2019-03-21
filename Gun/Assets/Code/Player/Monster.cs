@@ -8,6 +8,7 @@ public class Monster : PlayObject
     protected override void Start()
     {
         base.Start();
+        StartCoroutine(EndTurn());
     }
 
     void Update()
@@ -21,7 +22,7 @@ public class Monster : PlayObject
 
     protected override void Action()
     {
-        GameManager.instance.playerTurn = true;
-        StartCoroutine(EndTurn());
+       // GameManager.instance.playerTurn = true;
+        //StartCoroutine(EndTurn());
     }
 }
