@@ -6,6 +6,7 @@ public class Player : PlayObject
 {
     private List<GameObject> MyCard = new List<GameObject>();
     private List<GameObject> HandCard = new List<GameObject>();
+    private List<GameObject> TrashCard = new List<GameObject>();
 
     protected override void Start()
     {
