@@ -15,7 +15,7 @@ public abstract class PlayObject : MonoBehaviour
 
     }
 
-    protected void MyTurn()
+    protected virtual void MyTurn()
     {
         Vector3 scale = transform.localScale;
         scale.x = 0.8f;
@@ -23,7 +23,7 @@ public abstract class PlayObject : MonoBehaviour
         transform.localScale = scale;
     }
 
-    protected IEnumerator EndTurn()
+    protected virtual IEnumerator EndTurn()
     {
         Vector3 scale = transform.localScale;
         scale.x = 0.6f;
