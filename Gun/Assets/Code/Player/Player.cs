@@ -30,15 +30,18 @@ public class Player : PlayObject
 
     void Shuffle()
     {
-        for(int i=0;i<5;i++)
+        for(int i=0;i<MyCard.Count;i++)
         {
-
+            GameObject temp = MyCard[i];
+            int index = Random.Range(0,MyCard.Count);
+            MyCard[i] = MyCard[index];
+            MyCard[index] = temp;
         }
     }
 
     void DrawCard()
     {
-        
+        HandCard.Clear();
     }
 
     protected override void Action()
