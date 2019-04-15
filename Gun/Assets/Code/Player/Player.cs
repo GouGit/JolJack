@@ -8,6 +8,23 @@ public class Player : PlayObject
     private List<GameObject> HandCard = new List<GameObject>();
     private List<GameObject> TrashCard = new List<GameObject>();
 
+    private static Player instance = null;
+    public static Player inst;
+
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            inst = instance;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(inst);
+    } 
+
     protected override void Start()
     {
         base.Start();
@@ -42,15 +59,14 @@ public class Player : PlayObject
         }
     }
 
-    public static void DrawCard()
+    public void DrawCard()
     {
         HandCard.Clear();
-        for(int i=0;i<5;i++)
+        for(int i=0; i<5; i++)
         {
             HandCard.Add(MyCard[i]);
             MyCard.RemoveAt(i);
-
-            Dedug.Log(HandCard[i]);
+            ReBulid();
         }
     }
 
@@ -61,12 +77,17 @@ public class Player : PlayObject
            TrashCard.Add(HandCard[i]);
         }
 
+        ReBulid();
+    }
+
+    void ReBulid()
+    {
         if(MyCard.Count == 0)
         {
             for(int i=0;i<TrashCard.Count;i++)
             {
                 MyCard.Add(TrashCard[i]);
-            }
+            }   
         }
     }
 
@@ -87,7 +108,11 @@ public class Player : PlayObject
     protected override IEnumerator EndTurn()
     {
         DropCard();
-        base.EndTurn();
+        Vector3 scale = transform.localScale;
+        scale.x = 0.6f;
+        scale.y = 0.6f;
+        transform.localScale = scale;
+        yield return null;
     }
 
 }

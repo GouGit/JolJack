@@ -21,7 +21,7 @@ public class Monster : PlayObject
 
     protected override void Action()
     {
-      if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(1))
         {
             GameManager.instance.playerTurn = true;
             StartCoroutine(EndTurn());
@@ -35,7 +35,11 @@ public class Monster : PlayObject
 
     protected override IEnumerator EndTurn()
     {
-        Player.DrawCard();
-        base.EndTurn();
+        Player.inst.DrawCard();
+        Vector3 scale = transform.localScale;
+        scale.x = 0.6f;
+        scale.y = 0.6f;
+        transform.localScale = scale;
+        yield return null;
     }
 }
