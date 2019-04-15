@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player : PlayObject
 {
-    public  List<GameObject> MyCard = new List<GameObject>();
-    private List<GameObject> HandCard = new List<GameObject>();
-    private List<GameObject> TrashCard = new List<GameObject>();
+    public  LinkedList<GameObject> MyCard = new LinkedList<GameObject>();
+    private LinkedList<GameObject> HandCard = new LinkedList<GameObject>();
+    private LinkedList<GameObject> TrashCard = new LinkedList<GameObject>();
 
     private static Player instance = null;
     public static Player inst;
@@ -33,7 +33,7 @@ public class Player : PlayObject
         TrashCard.Clear();
         for(int i=0;i<GameManager.instance.cardManager.AllCards.Count;i++)
         {
-            MyCard.Add(GameManager.instance.cardManager.AllCards[i]);
+            MyCard.AddFirst(GameManager.instance.cardManager.AllCards[i]);
         }
         Shuffle();
         DrawCard();
@@ -52,10 +52,10 @@ public class Player : PlayObject
     {
         for(int i=0;i<MyCard.Count;i++)
         {
-            GameObject temp = MyCard[i];
-            int index = Random.Range(0,MyCard.Count);
-            MyCard[i] = MyCard[index];
-            MyCard[index] = temp;
+            // GameObject temp = MyCard.;
+            // int index = Random.Range(0,MyCard.Count);
+            // MyCard[i] = MyCard[index];
+            // MyCard[index] = temp;
         }
     }
 
@@ -64,8 +64,8 @@ public class Player : PlayObject
         HandCard.Clear();
         for(int i=0; i<5; i++)
         {
-            HandCard.Add(MyCard[i]);
-            MyCard.RemoveAt(i);
+            // HandCard.Add(MyCard[i]);
+            // MyCard.RemoveAt(i);
             ReBulid();
         }
     }
@@ -74,7 +74,7 @@ public class Player : PlayObject
     {
         for(int i=0;i<5;i++)
         {
-           TrashCard.Add(HandCard[i]);
+           //TrashCard.Add(HandCard[i]);
         }
 
         ReBulid();
@@ -86,7 +86,7 @@ public class Player : PlayObject
         {
             for(int i=0;i<TrashCard.Count;i++)
             {
-                MyCard.Add(TrashCard[i]);
+                //MyCard.Add(TrashCard[i]);
             }   
         }
     }
