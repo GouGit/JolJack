@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : PlayObject
 {
+    
     public  LinkedList<GameObject> MyCard = new LinkedList<GameObject>();
     private LinkedList<GameObject> HandCard = new LinkedList<GameObject>();
     private LinkedList<GameObject> TrashCard = new LinkedList<GameObject>();
@@ -48,14 +49,38 @@ public class Player : PlayObject
         Action();
     }
 
+    void Show()
+    {
+        int i = -2;
+        for(var node = HandCard.First; node != null; node = node.Next)
+        {
+            GameObject temp;
+            temp = Instantiate(node.Value,new Vector3(i,-0.5f,0),Quaternion.identity);
+            i += 1;
+        }
+    }
+
     void Shuffle()
     {
-        for(int i=0;i<MyCard.Count;i++)
+        List<GameObject> result = new List<GameObject>();
+        
+        for(var node = MyCard.First; node != null; node = node.Next)
         {
-            // GameObject temp = MyCard.;
-            // int index = Random.Range(0,MyCard.Count);
-            // MyCard[i] = MyCard[index];
-            // MyCard[index] = temp;
+            result.Add(node.Value);
+        }
+
+        for(int i= 0; i<result.Count; i++)
+        {
+            GameObject temp = result[i];
+            int index = Random.Range(0,MyCard.Count);
+            result[i] = result[index];
+            result[index] = temp;
+        }
+
+        MyCard.Clear();
+        for(int i=0;i<result.Count;i++)
+        {
+            MyCard.AddLast(result[i]);
         }
     }
 
@@ -64,31 +89,32 @@ public class Player : PlayObject
         HandCard.Clear();
         for(int i=0; i<5; i++)
         {
-            // HandCard.Add(MyCard[i]);
-            // MyCard.RemoveAt(i);
-            ReBulid();
+            HandCard.AddLast(MyCard.Last.Value);
+            MyCard.RemoveLast();
+
+            if(MyCard.Count == 0)
+                ReBulid();
         }
+        Show();
     }
 
     void DropCard()
     {
         for(int i=0;i<5;i++)
         {
-           //TrashCard.Add(HandCard[i]);
+           TrashCard.AddFirst(HandCard.First.Value);
+           HandCard.RemoveFirst();
         }
-
-        ReBulid();
     }
 
     void ReBulid()
     {
-        if(MyCard.Count == 0)
+        for(int i=0;i<TrashCard.Count;i++)
         {
-            for(int i=0;i<TrashCard.Count;i++)
-            {
-                //MyCard.Add(TrashCard[i]);
-            }   
+            MyCard.AddFirst(TrashCard.First.Value);
+            TrashCard.RemoveFirst();
         }
+        Shuffle();   
     }
 
     protected override void Action()
