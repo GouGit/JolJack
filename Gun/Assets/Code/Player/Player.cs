@@ -9,6 +9,8 @@ public class Player : PlayObject
     private LinkedList<GameObject> HandCard = new LinkedList<GameObject>();
     private LinkedList<GameObject> TrashCard = new LinkedList<GameObject>();
 
+    private GameObject showCard;
+
     private static Player instance = null;
     public static Player inst;
 
@@ -51,11 +53,13 @@ public class Player : PlayObject
 
     void Show()
     {
+        
         int i = -2;
         for(var node = HandCard.First; node != null; node = node.Next)
         {
             GameObject temp;
-            temp = Instantiate(node.Value,new Vector3(i,-0.5f,0),Quaternion.identity);
+            temp = Instantiate(node.Value,new Vector3(i,-4.0f,0),Quaternion.identity);
+            temp.transform.position = temp.transform.position + new Vector3(0,0,-i);
             i += 1;
         }
     }
