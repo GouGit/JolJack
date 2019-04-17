@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player : PlayObject
 {
-    
-    public  LinkedList<GameObject> MyCard = new LinkedList<GameObject>();
+    private  LinkedList<GameObject> MyCard = new LinkedList<GameObject>();
     private LinkedList<GameObject> HandCard = new LinkedList<GameObject>();
     private LinkedList<GameObject> TrashCard = new LinkedList<GameObject>();
 
