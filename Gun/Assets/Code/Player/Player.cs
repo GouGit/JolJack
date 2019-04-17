@@ -35,7 +35,7 @@ public class Player : PlayObject
         TrashCard.Clear();
         for(int i=0;i<GameManager.instance.cardManager.AllCards.Count;i++)
         {
-            MyCard.AddFirst(GameManager.instance.cardManager.AllCards[i]);
+            MyCard.AddLast(GameManager.instance.cardManager.AllCards[i]);
         }
         Shuffle();
         DrawCard();
@@ -52,13 +52,14 @@ public class Player : PlayObject
 
     void Show()
     {
-        
+        showCard = new GameObject("Card");
         int i = -2;
         for(var node = HandCard.First; node != null; node = node.Next)
         {
             GameObject temp;
-            temp = Instantiate(node.Value,new Vector3(i,-4.0f,0),Quaternion.identity);
+            temp = Instantiate(node.Value,new Vector3(i*2,-3.0f,0),Quaternion.identity);
             temp.transform.position = temp.transform.position + new Vector3(0,0,-i);
+            temp.transform.SetParent(showCard.transform);
             i += 1;
         }
     }
@@ -103,6 +104,7 @@ public class Player : PlayObject
 
     void DropCard()
     {
+        Destroy(showCard);
         for(int i=0;i<5;i++)
         {
            TrashCard.AddFirst(HandCard.First.Value);
@@ -138,8 +140,8 @@ public class Player : PlayObject
     {
         DropCard();
         Vector3 scale = transform.localScale;
-        scale.x = 0.6f;
-        scale.y = 0.6f;
+        scale.x = 0.8f;
+        scale.y = 0.8f;
         transform.localScale = scale;
         yield return null;
     }

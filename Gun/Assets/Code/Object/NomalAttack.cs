@@ -5,9 +5,24 @@ using UnityEngine;
 public class NomalAttack : MonoBehaviour
 {
 
+    private Vector3 origin;
+
     void Start()
     {
-        Debug.Log("Damage: 5");
+        origin = transform.localScale;
+    }
+
+    void OnMouseDown()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x = 1.3f;
+        scale.y = 1.3f;
+        transform.localScale = scale;
+    }
+
+    void OnMouseUp()
+    {
+        transform.localScale = origin;
     }
 
 }
