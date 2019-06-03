@@ -32,9 +32,9 @@ public class Player : PlayObject
         MyCard.Clear();
         HandCard.Clear();
         TrashCard.Clear();
-        for(int i=0;i<GameManager.instance.cardManager.AllCards.Count;i++)
+        for(int i=0;i<GameManager.instance.AllCards.Count;i++)
         {
-            MyCard.AddLast(GameManager.instance.cardManager.AllCards[i]);
+            MyCard.AddLast(GameManager.instance.AllCards[i]);
         }
         Shuffle();
         DrawCard();

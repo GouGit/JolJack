@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NomalAttack : MonoBehaviour
+public class NomalAttack : CardManager
 {
-
-    private Vector3 origin;
 
     void Start()
     {
@@ -14,15 +12,12 @@ public class NomalAttack : MonoBehaviour
 
     void OnMouseDown()
     {
-        Vector3 scale = transform.localScale;
-        scale.x = 1.3f;
-        scale.y = 1.3f;
-        transform.localScale = scale;
+        SelectCard();
     }
 
     void OnMouseUp()
     {
-        transform.localScale = origin;
+        DropCrad();
     }
 
 }

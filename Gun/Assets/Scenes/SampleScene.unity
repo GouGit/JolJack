@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,6 +62,7 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -76,10 +77,16 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVRFilteringMode: 1
+    m_PVREnvironmentMIS: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -88,6 +95,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
+    m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -122,7 +130,6 @@ GameObject:
   m_Component:
   - component: {fileID: 160481369}
   - component: {fileID: 160481368}
-  - component: {fileID: 160481370}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -143,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTurn: 0
-  cardManager: {fileID: 0}
+  AllCards: []
 --- !u!4 &160481369
 Transform:
   m_ObjectHideFlags: 0
@@ -158,29 +165,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &160481370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160481367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1cf8a20fd42a2478ad3f99a96a5abd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AllCards:
-  - {fileID: 5273378047148326024, guid: ae45f6969f26508429c4d69cd0843aa4, type: 3}
-  - {fileID: 5273378047148326024, guid: ae45f6969f26508429c4d69cd0843aa4, type: 3}
-  - {fileID: 5273378047148326024, guid: ae45f6969f26508429c4d69cd0843aa4, type: 3}
-  - {fileID: 5273378047148326024, guid: ae45f6969f26508429c4d69cd0843aa4, type: 3}
-  - {fileID: 1612171664447285048, guid: 4a9a20712f0b652438a89d172822e38e, type: 3}
-  - {fileID: 5431396722982534322, guid: 6e78d96723e6a164ebc683d1ce6de109, type: 3}
-  - {fileID: 5431396722982534322, guid: 6e78d96723e6a164ebc683d1ce6de109, type: 3}
-  - {fileID: 5431396722982534322, guid: 6e78d96723e6a164ebc683d1ce6de109, type: 3}
-  - {fileID: 5431396722982534322, guid: 6e78d96723e6a164ebc683d1ce6de109, type: 3}
-  - {fileID: 5431396722982534322, guid: 6e78d96723e6a164ebc683d1ce6de109, type: 3}
 --- !u!1 &206702917
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,9 +295,10 @@ Camera:
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2

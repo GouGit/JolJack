@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool playerTurn;
 
-    public CardManager cardManager;
+    public List<GameObject> AllCards = new List<GameObject>();
+
 
     void Awake()
     {
@@ -26,7 +27,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        cardManager = GetComponent<CardManager>();
         playerTurn = true;
     }
 }

@@ -14,6 +14,7 @@ public abstract class PlayObject : MonoBehaviour
     }
     protected TPYE tpye; //속성정의 (토파즈 < 루비 < 사파이어 < 토파즈), 다이아 서로 2배
     protected int attackPower; //공격력 (플레이어는 정의하지 않음)
+    protected int defensPower; //방어력 (몬스터 패턴, 카드효과로 수치를 올림 - 일시적)
     protected int hp; //체력
 
     protected virtual void Action() //행동패턴 정의
