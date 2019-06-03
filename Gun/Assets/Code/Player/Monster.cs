@@ -5,9 +5,9 @@ using UnityEngine;
 public class Monster : PlayObject
 {
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
+
     }
 
     void Update()
@@ -24,7 +24,7 @@ public class Monster : PlayObject
         if(Input.GetMouseButtonDown(0))
         {
             GameManager.instance.playerTurn = true;
-            StartCoroutine(EndTurn());
+            EndTurn();
         }
     }
 
@@ -33,13 +33,12 @@ public class Monster : PlayObject
         base.MyTurn();
     }
 
-    protected override IEnumerator EndTurn()
+    protected override void EndTurn()
     {
         Player.inst.DrawCard();
         Vector3 scale = transform.localScale;
         scale.x = 0.8f;
         scale.y = 0.8f;
         transform.localScale = scale;
-        yield return null;
     }
 }

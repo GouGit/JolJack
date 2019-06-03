@@ -27,9 +27,8 @@ public class Player : PlayObject
         DontDestroyOnLoad(inst);
     } 
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         MyCard.Clear();
         HandCard.Clear();
         TrashCard.Clear();
@@ -127,7 +126,7 @@ public class Player : PlayObject
         if(Input.GetMouseButtonDown(1))
         {
             GameManager.instance.playerTurn = false;
-            StartCoroutine(EndTurn());
+            EndTurn();
         }
     }
 
@@ -136,14 +135,13 @@ public class Player : PlayObject
         base.MyTurn();
     }
 
-    protected override IEnumerator EndTurn()
+    protected override void EndTurn()
     {
         DropCard();
         Vector3 scale = transform.localScale;
         scale.x = 0.8f;
         scale.y = 0.8f;
         transform.localScale = scale;
-        yield return null;
     }
 
 }
