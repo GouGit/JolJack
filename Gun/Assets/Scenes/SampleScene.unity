@@ -150,7 +150,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTurn: 0
-  AllCards: []
+  AllCards:
+  - {fileID: 5431396722982534322, guid: 6e78d96723e6a164ebc683d1ce6de109, type: 3}
+  - {fileID: 1612171664447285048, guid: 4a9a20712f0b652438a89d172822e38e, type: 3}
+  - {fileID: 5273378047148326024, guid: ae45f6969f26508429c4d69cd0843aa4, type: 3}
+  - {fileID: 5431396722982534322, guid: 6e78d96723e6a164ebc683d1ce6de109, type: 3}
+  - {fileID: 5273378047148326024, guid: ae45f6969f26508429c4d69cd0843aa4, type: 3}
+  - {fileID: 1612171664447285048, guid: 4a9a20712f0b652438a89d172822e38e, type: 3}
+  - {fileID: 5273378047148326024, guid: ae45f6969f26508429c4d69cd0843aa4, type: 3}
+  - {fileID: 1612171664447285048, guid: 4a9a20712f0b652438a89d172822e38e, type: 3}
+  - {fileID: 5273378047148326024, guid: ae45f6969f26508429c4d69cd0843aa4, type: 3}
+  - {fileID: 5273378047148326024, guid: ae45f6969f26508429c4d69cd0843aa4, type: 3}
 --- !u!4 &160481369
 Transform:
   m_ObjectHideFlags: 0

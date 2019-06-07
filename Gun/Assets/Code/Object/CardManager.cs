@@ -29,6 +29,11 @@ public abstract class CardManager : MonoBehaviour
         transform.localScale = origin;
     }
 
+    protected virtual void UseCard() //카드사용트리거
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
     protected virtual void CardAction() //카드효과
     {
 
