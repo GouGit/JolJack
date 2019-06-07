@@ -74,13 +74,13 @@
  
 # =============== #
  
-Temp/
+Gun/Temp/
  
-Obj/
+Gun/Obj/
  
-UnityGenerated/
+Gun/UnityGenerated/
  
-Library/
+Gun/Library/
  
  
  
@@ -141,6 +141,6 @@ ProjectSettings.asset
 ProjectVersion.txt
 
 
-免贸: https://minhyeokism.tistory.com/67 [programmer-dominic.kim]
+#免贸: https://minhyeokism.tistory.com/67 [programmer-dominic.kim]
 
-免贸: https://minhyeokism.tistory.com/67 [programmer-dominic.kim]
+#免贸: https://minhyeokism.tistory.com/67 [programmer-dominic.kim]
