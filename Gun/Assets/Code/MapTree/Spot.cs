@@ -10,15 +10,11 @@ public class Spot : MonoBehaviour
     [Tooltip("이 지점에서 길을 이을 다음 지점 입니다.")]
     public List<Spot> nextRoutes;       // 다음으로 이어질 spot 입니다.
 
+    public SceneOption sceneOption;
+
     public void test()
     {
         Debug.Log("와!!!");
-    }
-
-
-    void Awake()
-    {
-
     }
 
     void Start()
@@ -35,8 +31,8 @@ public class Spot : MonoBehaviour
         }
     }
 
-    void Update()
+    public void ChangeScene()
     {
-        
+        SceneLoader.LoadScene("BattleScene", sceneOption);
     }
 }

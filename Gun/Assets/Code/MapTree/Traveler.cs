@@ -58,6 +58,8 @@ public class Traveler : MonoBehaviour
 
         if(OnMoveEnd != null)
             OnMoveEnd.Invoke();
+        
+        nowSpot.ChangeScene();
     }
 
     void Awake()

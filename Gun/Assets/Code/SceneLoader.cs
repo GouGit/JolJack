@@ -15,6 +15,15 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
+    public static void LoadScene(string name, SceneOption option)
+    {
+        Time.timeScale = 0;
+        SceneOptionTransporter transporter = Instantiate(Resources.Load("SceneOptionTransporter") as GameObject).GetComponent<SceneOptionTransporter>();
+        transporter.sceneOption = option;
+        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+    }
+
+
 
     public static string GetNowSceneName()
     {
