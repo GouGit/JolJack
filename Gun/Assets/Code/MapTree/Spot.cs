@@ -12,6 +12,9 @@ public class Spot : MonoBehaviour
 
     public SceneOption sceneOption;
 
+    [HideInInspector]
+    public bool isTraversal = false;    // 맵 트리를 순회할때 중복순회를 막기위해 사용됩니다.
+
     public void test()
     {
         Debug.Log("와!!!");
