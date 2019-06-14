@@ -1277,53 +1277,20 @@ MonoBehaviour:
   nowSpot: {fileID: 1147845244}
   OnSpotChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1955658398}
-        m_MethodName: Change
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnMoveStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1955658398}
-        m_MethodName: GoStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnMoveEnd:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1955658398}
-        m_MethodName: GoEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  moveSpeed: 5
+  moveSpeed: 10
   teleport: 0
 --- !u!4 &1955658397
 Transform:
@@ -1354,7 +1321,7 @@ MonoBehaviour:
   traveler: {fileID: 1955658395}
   option:
     monsterList: []
-    testString: WA SANZ!!!!
+    testString: 
 --- !u!114 &2062084642 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5275741467283866448, guid: 5076b9f0fe1ca424fac0360b77de6d49,

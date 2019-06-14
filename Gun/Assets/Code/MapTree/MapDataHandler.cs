@@ -28,42 +28,61 @@ public static class MapDataHandler
 
     private static void SaveMap(Spot spot, XmlDocument document, XmlNode root)
     {
-        if(spot.isTraversal)
-            return;
+        XmlElement wow = document.CreateElement("spot");
 
         Debug.Log(spot.sceneOption.testString);
 
-        XmlElement wow = document.CreateElement("spot");
-        wow.SetAttribute("string",spot.sceneOption.testString);
-        wow.SetAttribute("position", spot.transform.position.ToString());
+        XmlElement str = document.CreateElement("string");
+        str.InnerText = spot.sceneOption.testString;
+        wow.AppendChild(str);
 
-        spot.isTraversal = true;
-        
-        int count = spot.nextRoutes.Count;
-        for(int i = 0; i < count; i++)
+        XmlElement position = document.CreateElement("position");
+        position.InnerText = spot.transform.position.ToString();
+        wow.AppendChild(position);
+
+        if(!spot.isTraversal)
         {
-            SaveMap(spot.nextRoutes[i],document, wow);
+            spot.isTraversal = true;
+            
+            int count = spot.nextRoutes.Count;
+            for(int i = 0; i < count; i++)
+            {
+                SaveMap(spot.nextRoutes[i],document, wow);
+            }
         }
+
         root.AppendChild(wow);
     }
 
     public static void LoadMap(Spot spot, string filePath)
     {
-        TextAsset textAsset = Resources.Load("./Assets/Resources/Test.xml"); 
+        TextAsset textAsset = (TextAsset)Resources.Load(filePath); 
+        Debug.Log(textAsset);
         XmlDocument document = new XmlDocument();
 
-        document.Load(filePath);
-        Debug.Log(document.Value);
-        XmlElement stage = document["Stage_Test"];
-        XmlElement spots = stage["Spots"];
+        document.LoadXml(textAsset.text);
+        Debug.Log(document.InnerText);
+        
+        XmlNode root = document.SelectSingleNode("Stage_Test/Spots/spot");
+
+        LoadMap(spot, document, root);
     }
 
-    // private static void LoadMap(Spot spot, XmlDocument document, XmlNode root)
-    // {
-    //     if(spot.isTraversal)
-    //         return;
+    private static void LoadMap(Spot spot, XmlDocument document, XmlNode root)
+    {
+        Debug.Log(spot);
+        spot.sceneOption.testString = root.SelectSingleNode("string").InnerText;
+        // spot.transform.position = root.SelectSingleNode("position").InnerText.;
 
-    //     XmlNode wow = root.FirstChild;
-
-    // }
+        if(!spot.isTraversal)
+        {
+            spot.isTraversal = true;
+            XmlNodeList list = root.SelectNodes("spot");
+            int count = spot.nextRoutes.Count;
+            for(int i = 0; i < count; i++)
+            {
+                LoadMap(spot.nextRoutes[i], document, list[i]);
+            }
+        }
+    }
 }

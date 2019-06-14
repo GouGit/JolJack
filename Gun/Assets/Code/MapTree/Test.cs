@@ -32,8 +32,8 @@ public class Test : MonoBehaviour
 
     void Start()
     {
-        //MapDataHandler.SaveMap(traveler.nowSpot, "./Assets/Resources/Test.xml");
-        MapDataHandler.LoadMap(traveler.nowSpot, "./Assets/Resources/Test.xml");
+        MapDataHandler.SaveMap(traveler.nowSpot, "./Assets/Resources/Test.xml");
+        // MapDataHandler.LoadMap(traveler.nowSpot, "Test");
         //traveler.ChangeSpot(traveler.nowSpot.nextRoutes[0]);
     }
 }
