@@ -26,14 +26,16 @@ public class Test : MonoBehaviour
         }
         else
         {
-
+            
         }
     }
 
     void Start()
     {
+        // MapDataHandler.SetID(traveler.nowSpot);
         MapDataHandler.SaveMap(traveler.nowSpot, "./Assets/Resources/Test.xml");
+        MapDataHandler.CreateMap("Test");
         // MapDataHandler.LoadMap(traveler.nowSpot, "Test");
-        //traveler.ChangeSpot(traveler.nowSpot.nextRoutes[0]);
+        // traveler.ChangeSpot(traveler.nowSpot.nextRoutes[0]);
     }
 }
