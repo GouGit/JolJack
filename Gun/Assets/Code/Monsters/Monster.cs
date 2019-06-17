@@ -7,7 +7,7 @@ public class Monster : PlayObject
 
     void Start()
     {
-
+        
     }
 
     void Update()
