@@ -6,7 +6,14 @@ using System;
 [Serializable]
 public struct SceneOption
 {
-    [Tooltip("플레이어와 전투를 할 몬스터 프리팹들을 넣습니다.")]
-    public List<Monster> monsterList;
-    public string testString;
+    public enum Type
+    { 
+        Boss, Battle, Event, Rest, MAX
+    };
+
+    [Tooltip("다음씬의 타입")]
+    public Type type;
+
+    [Tooltip("다음씬에서 소환할 객체들의 프리팹을 넣습니다.")]
+    public List<GameObject> objectList;
 }

@@ -1,76 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Stage_Test>
-  <Spots SpotCount="13">
+  <Spots SpotCount="5">
     <spot>
       <ID>0</ID>
-      <string>0</string>
-      <position>(-5.3, -4.4, 0.0)</position>
+      <position>(-2.7, -2.8, 0.0)</position>
+      <type>1</type>
+      <prefabs PrefabCount="1">
+        <prefab>NomalAttack</prefab>
+      </prefabs>
       <spot>
         <ID>1</ID>
-        <string>1</string>
-        <position>(-6.4, -2.5, 0.0)</position>
+        <position>(-3.7, -1.8, 0.0)</position>
+        <type>1</type>
+        <prefabs PrefabCount="0" />
         <spot>
           <ID>2</ID>
-          <string>2</string>
-          <position>(-6.5, 0.6, 0.0)</position>
-          <spot>
-            <ID>3</ID>
-            <string>3</string>
-            <position>(-5.0, 2.2, 0.0)</position>
-            <spot>
-              <ID>4</ID>
-              <string>4</string>
-              <position>(-7.1, 3.1, 0.0)</position>
-              <spot>
-                <ID>5</ID>
-                <string>5</string>
-                <position>(-8.6, 4.0, 0.0)</position>
-                <spot>
-                  <ID>6</ID>
-                  <string>
-                  </string>
-                  <position>(-4.1, 7.5, 0.0)</position>
-                </spot>
-              </spot>
-            </spot>
-            <spot>
-              <ID>7</ID>
-              <string>6</string>
-              <position>(-3.8, 3.3, 0.0)</position>
-              <nextSpot>6</nextSpot>
-            </spot>
-          </spot>
+          <position>(-2.7, -0.8, 0.0)</position>
+          <type>0</type>
+          <prefabs PrefabCount="0" />
         </spot>
       </spot>
       <spot>
-        <ID>8</ID>
-        <string>7</string>
-        <position>(-3.9, -2.5, 0.0)</position>
-        <spot>
-          <ID>9</ID>
-          <string>8</string>
-          <position>(-3.7, 0.5, 0.0)</position>
-          <nextSpot>7</nextSpot>
-          <nextSpot>3</nextSpot>
-          <spot>
-            <ID>10</ID>
-            <string>9</string>
-            <position>(-1.9, 2.9, 0.0)</position>
-            <nextSpot>6</nextSpot>
-          </spot>
-          <spot>
-            <ID>11</ID>
-            <string>10</string>
-            <position>(0.9, 0.9, 0.0)</position>
-            <nextSpot>6</nextSpot>
-          </spot>
-          <spot>
-            <ID>12</ID>
-            <string>11</string>
-            <position>(2.8, 2.9, 0.0)</position>
-            <nextSpot>6</nextSpot>
-          </spot>
-        </spot>
+        <ID>3</ID>
+        <position>(-2.7, -1.8, 0.0)</position>
+        <type>2</type>
+        <prefabs PrefabCount="0" />
+        <nextSpot>2</nextSpot>
+      </spot>
+      <spot>
+        <ID>4</ID>
+        <position>(-1.7, -1.8, 0.0)</position>
+        <type>3</type>
+        <prefabs PrefabCount="0" />
+        <nextSpot>2</nextSpot>
       </spot>
     </spot>
   </Spots>

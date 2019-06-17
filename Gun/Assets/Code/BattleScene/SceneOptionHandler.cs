@@ -19,6 +19,6 @@ public class SceneOptionHandler : MonoBehaviour
 
     public void CreateBattleScene(SceneOption option)
     {
-        Debug.Log(option.testString + "번째 스테이지 입니당.");
+        
     }
 }

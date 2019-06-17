@@ -31,7 +31,7 @@ public static class MapDataHandler
     }
 
     private static void SetID(Spot spot, ref int IDcount)
-    {
+    {// 트리의 노드를 순회하며 ID를 부여하는 재귀함수 입니다.
         if (spot.isTraversal)
             return;
 
@@ -46,6 +46,11 @@ public static class MapDataHandler
         }
     }
 
+    /// <summary>
+    /// 게임의 진행도를 저장합니다.
+    /// </summary>
+    /// <param name="spot">제일 첫 spot</param>
+    /// <param name="filePath">XML파일의 위치</param>
     public static void SaveMap(Spot spot, string filePath)
     {
         Debug.Log("맵을 저장합니다.");
@@ -81,20 +86,30 @@ public static class MapDataHandler
         }
 
         XmlElement wow = document.CreateElement("spot");
-        Debug.Log(spot.sceneOption.testString);
 
         XmlElement IDcount = document.CreateElement("ID");
         IDcount.InnerText = spot.ID.ToString();
         wow.AppendChild(IDcount);
 
-
-        XmlElement str = document.CreateElement("string");
-        str.InnerText = spot.sceneOption.testString;
-        wow.AppendChild(str);
-
         XmlElement position = document.CreateElement("position");
         position.InnerText = spot.transform.position.ToString();
         wow.AppendChild(position);
+
+        XmlElement type = document.CreateElement("type");
+        type.InnerText = ((int)spot.sceneOption.type).ToString();
+        wow.AppendChild(type);
+
+        XmlElement prefabs = document.CreateElement("prefabs");
+        prefabs.SetAttribute("PrefabCount", spot.sceneOption.objectList.Count.ToString());
+
+        foreach (GameObject prefabObject in spot.sceneOption.objectList)
+        {
+            XmlElement prefab = document.CreateElement("prefab");
+            prefab.InnerText = prefabObject.name;
+            prefabs.AppendChild(prefab);        
+        }
+
+        wow.AppendChild(prefabs);
 
         spot.isTraversal = true;
 
@@ -106,6 +121,12 @@ public static class MapDataHandler
         root.AppendChild(wow);
     }
 
+
+    /// <summary>
+    /// 게임의 진행도를 불러옵니다.
+    /// </summary>
+    /// <param name="spot">제일 첫 spot</param>
+    /// <param name="filePath">XML파일의 위치</param>
     public static void LoadMap(Spot spot, string filePath)
     {
         Debug.Log("맵을 불러옵니다.");
@@ -123,8 +144,6 @@ public static class MapDataHandler
 
     private static void LoadMap(Spot spot, XmlDocument document, XmlNode root)
     {
-        Debug.Log(spot);
-        spot.sceneOption.testString = root.SelectSingleNode("string").InnerText;
         // spot.transform.position = root.SelectSingleNode("position").InnerText.;
 
         if (!spot.isTraversal)
@@ -139,27 +158,26 @@ public static class MapDataHandler
         }
     }
 
-    public static void CreateMap(string filePath)
+    /// <summary>
+    /// XML파일을 이용하여 맵을 구성하고 제일 처음 spot을 리턴합니다.
+    /// </summary>
+    /// <param name="filePath">XML파일의 위치</param>
+    public static Spot CreateMap(string filePath)
     {
         TextAsset textAsset = (TextAsset)Resources.Load(filePath);
         Debug.Log(textAsset);
         XmlDocument document = new XmlDocument();
 
         document.LoadXml(textAsset.text);
-        // Debug.Log(document.InnerText);
 
-        
-        XmlNode spots = document.SelectSingleNode("Stage_Test/Spots");//document.SelectSingleNode("Stage_Test/Spots");
+        XmlNode spots = document.SelectSingleNode("Stage_Test/Spots");
         int count = (spots as XmlElement).GetAttribute("SpotCount").ToInt();
-        //spots.
-
-        // Debug.Log(count);
 
         List<Spot> spotList = new List<Spot>();
 
         XmlNode root = spots.SelectSingleNode("spot");
         Debug.Log(root.InnerText);
-        CreateMap(document, root, spotList);
+        return CreateMap(document, root, spotList);
     }
 
     private static Spot CreateMap(XmlDocument document, XmlNode root, List<Spot> spotList)

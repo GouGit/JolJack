@@ -12,9 +12,9 @@ public class Spot : MonoBehaviour
 
     public SceneOption sceneOption;
 
-    // [HideInInspector]
+    [HideInInspector]
     public bool isTraversal = false;    // 맵 트리를 순회할때 중복순회를 막기위해 사용됩니다.
-    // [HideInInspector]
+    [HideInInspector]
     public int ID;                      // 맵을 저장하고 불러올때 사용될 변수 입니다. 코드상에서 절대로 건들면 안됩니다.
 
     public void test()

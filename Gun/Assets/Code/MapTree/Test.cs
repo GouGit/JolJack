@@ -34,7 +34,7 @@ public class Test : MonoBehaviour
     {
         // MapDataHandler.SetID(traveler.nowSpot);
         MapDataHandler.SaveMap(traveler.nowSpot, "./Assets/Resources/Test.xml");
-        MapDataHandler.CreateMap("Test");
+        // traveler.nowSpot = MapDataHandler.CreateMap("Test");
         // MapDataHandler.LoadMap(traveler.nowSpot, "Test");
         // traveler.ChangeSpot(traveler.nowSpot.nextRoutes[0]);
     }

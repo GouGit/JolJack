@@ -10,8 +10,7 @@ public class GameManager : MonoBehaviour
     public bool playerTurn;
 
     public List<GameObject> AllCards = new List<GameObject>();
-
-
+    
     void Awake()
     {
         if(instance == null)
