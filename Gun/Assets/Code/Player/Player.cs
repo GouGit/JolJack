@@ -12,6 +12,7 @@ public class Player : PlayObject
 
     private static Player instance = null;
     public static Player inst;
+    public int cardsCount, usedCount;
 
     void Awake()
     {
@@ -38,15 +39,16 @@ public class Player : PlayObject
         }
         Shuffle();
         DrawCard();
+
+        hp = 80;
     }
 
     void Update()
     {
         if(!GameManager.instance.playerTurn)
             return;
-
+        
         MyTurn();
-        Action();
     }
 
     void Show()
@@ -57,6 +59,7 @@ public class Player : PlayObject
         {
             GameObject temp;
             temp = Instantiate(node.Value,new Vector3(i*2,-3.0f,0),Quaternion.identity);
+            temp.gameObject.SetActive(true);
             temp.transform.position = temp.transform.position + new Vector3(0,0,-i);
             temp.transform.SetParent(showCard.transform);
             i += 1;
@@ -121,22 +124,16 @@ public class Player : PlayObject
         Shuffle();   
     }
 
-    protected override void Action()
-    {
-        if(Input.GetMouseButtonDown(1))
-        {
-            GameManager.instance.playerTurn = false;
-            EndTurn();
-        }
-    }
-
     protected override void MyTurn()
     {
         base.MyTurn();
+        cardsCount = MyCard.Count;
+        usedCount = TrashCard.Count;
     }
 
-    protected override void EndTurn()
+    public override void EndTurn()
     {
+        GameManager.instance.playerTurn = false;
         DropCard();
         Vector3 scale = transform.localScale;
         scale.x = 0.8f;

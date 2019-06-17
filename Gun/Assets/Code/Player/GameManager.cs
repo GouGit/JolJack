@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     [HideInInspector]
     public bool playerTurn;
+    public int cost = 3;
 
     public List<GameObject> AllCards = new List<GameObject>();
 
