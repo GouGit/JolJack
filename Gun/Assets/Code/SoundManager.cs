@@ -97,6 +97,11 @@ public class SoundManager : MonoBehaviour
         else
             AudioListener.volume = volume;
 
+        if (SceneLoader.GetNowSceneIndex() == 0)
+        {
+            GameObject.Find("VolumeController").transform.GetChild(0).GetComponent<UnityEngine.UI.Slider>().value = volume;
+        }
+
         m_iSESourceIndex = 0;
 
         m_BGMSource = gameObject.AddComponent<AudioSource>();

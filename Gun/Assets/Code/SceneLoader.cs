@@ -33,22 +33,28 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadSceneWithFade(string name)
     {
-        FadeUI fadePanel = FindObjectOfType<FadeUI>();
-        fadePanel.m_OnFadeInEnd += (obj) =>
+        FadeUI[] fadePanels = FindObjectsOfType<FadeUI>();
+        foreach (var fadePanel in fadePanels)
         {
-            LoadScene(name);
-        };
-        fadePanel.FadeIn();
+            fadePanel.m_OnFadeInEnd += (obj) =>
+          {
+              LoadScene(name);
+          };
+            fadePanel.FadeIn();
+        }
     }
 
     public void LoadSceneWithFade(int index)
     {
-        FadeUI fadePanel = FindObjectOfType<FadeUI>();
-        fadePanel.m_OnFadeInEnd += (obj) =>
+        FadeUI[] fadePanels = FindObjectsOfType<FadeUI>();
+        foreach (var fadePanel in fadePanels)
         {
-            LoadScene(index);
-        };
-        fadePanel.FadeIn();
+            fadePanel.m_OnFadeInEnd += (obj) =>
+            {
+                LoadScene(index);
+            };
+            fadePanel.FadeIn();
+        }
     }
 
     public void ChangeSceneToMenu()
