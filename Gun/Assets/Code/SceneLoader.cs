@@ -53,7 +53,7 @@ public class SceneLoader : MonoBehaviour
 
     public void ChangeSceneToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        LoadScene("Menu");
     }
 
     public void ChangeSceneToGame()
