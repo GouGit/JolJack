@@ -43,6 +43,8 @@ public class SoundManager : MonoBehaviour
     [Tooltip("클립을 배열에 넣은 후 SoundManager 스크립트의 SFXList를 수정해주세요.")]
     public AudioClip[] m_SFXClips;
 
+    private UnityEngine.UI.Text m_VolumeText;
+
     public enum BGMList
     {
         BGM_MAIN,
@@ -90,6 +92,7 @@ public class SoundManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
 
+        m_VolumeText = GameObject.Find("VolumeText").GetComponent<UnityEngine.UI.Text>();
         // 데이터가 저장되어있지 않으면 기본값 (1)로 설정
         float volume = PlayerPrefs.GetFloat(PlayerPrefsKey, -1);
         if (volume == -1)
@@ -100,6 +103,7 @@ public class SoundManager : MonoBehaviour
         if (SceneLoader.GetNowSceneIndex() == 0)
         {
             GameObject.Find("VolumeController").transform.GetChild(0).GetComponent<UnityEngine.UI.Slider>().value = volume;
+            m_VolumeText.text = ((int)(volume * 100)).ToString() + "%";
         }
 
         m_iSESourceIndex = 0;
@@ -147,6 +151,8 @@ public class SoundManager : MonoBehaviour
     {
         value = Mathf.Clamp(value, 0, 1);
         AudioListener.volume = value;
+        if (m_VolumeText != null)
+            m_VolumeText.text = ((int)(value * 100)).ToString() + "%";
         PlayerPrefs.SetFloat(PlayerPrefsKey, value);
         PlayerPrefs.Save();
     }
