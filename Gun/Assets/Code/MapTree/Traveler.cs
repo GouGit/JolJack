@@ -20,8 +20,12 @@ public class Traveler : MonoBehaviour
     [Tooltip("true일때 ChangeSpot 호출 시 해당 spot으로 순간이동 합니다.")]
     public bool teleport = false;
 
+    public RoutePicker routePicker;
+
     private bool isMoving = false;
     private Spot lastSpot = null;
+
+    private GameObject canvas;
 
     public void ChangeSpot(Spot spot)
     {
@@ -59,7 +63,7 @@ public class Traveler : MonoBehaviour
         if(OnMoveEnd != null)
             OnMoveEnd.Invoke();
         
-        nowSpot.ChangeScene();
+        // nowSpot.ChangeScene();
     }
 
     void Awake()
@@ -70,6 +74,20 @@ public class Traveler : MonoBehaviour
             return;
         }
 
+        // ChangeSpot(nowSpot);
+
         transform.position = nowSpot.transform.position;
+        canvas = GameObject.Find("Canvas");
+        ViewRoutes();
+    }
+
+    public void ViewRoutes()
+    {
+        for(int i = 0; i < nowSpot.nextRoutes.Count; i++)
+        {
+            RoutePicker picker = Instantiate(routePicker);
+            picker.SetOption(this, nowSpot.nextRoutes[i]);
+            picker.transform.SetParent(canvas.transform.GetChild(0).transform);
+        }
     }
 }
