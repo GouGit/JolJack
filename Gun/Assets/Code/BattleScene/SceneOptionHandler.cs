@@ -14,7 +14,7 @@ public class SceneOptionHandler : MonoBehaviour
             return;
         }
 
-        CreateBattleScene(transporter.sceneOption);      
+        CreateBattleScene(transporter.sceneOption);
     }
 
     public void CreateBattleScene(SceneOption option)
