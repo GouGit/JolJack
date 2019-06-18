@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5577631108380958969}
   - component: {fileID: 2719659035430433918}
   - component: {fileID: 5424559325095736700}
+  - component: {fileID: 8380432996278970437}
   m_Layer: 0
   m_Name: Double Attack
   m_TagString: Untagged
@@ -67,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -728780115
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e484168ce8781da47943b0864677d98c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,7 +98,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.97, y: 4.13}
+    oldSize: {x: 2.98, y: 4.13}
     newSize: {x: 2.98, y: 4.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -106,3 +107,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.97, y: 4.13}
   m_EdgeRadius: 0
+--- !u!114 &8380432996278970437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612171664447285048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472f8711904387d4e984eca95dc38888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -13,6 +13,7 @@ public class Player : PlayObject
     private static Player instance = null;
     public static Player inst;
     public int cardsCount, usedCount;
+    public int defens;
 
     void Awake()
     {
@@ -58,7 +59,7 @@ public class Player : PlayObject
         for(var node = HandCard.First; node != null; node = node.Next)
         {
             GameObject temp;
-            temp = Instantiate(node.Value,new Vector3(i*2,-3.0f,0),Quaternion.identity);
+            temp = Instantiate(node.Value,new Vector3(i*2,-2.5f,0),Quaternion.identity);
             temp.gameObject.SetActive(true);
             temp.transform.position = temp.transform.position + new Vector3(0,0,-i);
             temp.transform.SetParent(showCard.transform);
@@ -129,6 +130,16 @@ public class Player : PlayObject
         base.MyTurn();
         cardsCount = MyCard.Count;
         usedCount = TrashCard.Count;
+        if(defens > 0)
+        {
+            defensPower = defens;
+            DefensUI.SetDefens(defensPower);
+            DefensUI.gameObject.SetActive(true);
+        }
+        else
+        {
+            DefensUI.gameObject.SetActive(false);
+        }
     }
 
     public override void EndTurn()
