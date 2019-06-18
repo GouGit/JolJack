@@ -19,9 +19,6 @@ public class SceneOptionHandler : MonoBehaviour
 
     public void CreateBattleScene(SceneOption option)
     {
-        for(int i = 0; i < option.objectList.Count; i++)
-        {
-            Instantiate(option.objectList[i]);
-        }
+        
     }
 }

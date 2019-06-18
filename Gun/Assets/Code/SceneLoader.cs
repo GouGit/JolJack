@@ -7,21 +7,20 @@ public class SceneLoader : MonoBehaviour
 {
     public static void LoadScene(int index)
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(index);
     }
 
     public static void LoadScene(string name)
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(name);
     }
 
     public static void LoadScene(string name, SceneOption option)
     {
+        Time.timeScale = 0;
         SceneOptionTransporter transporter = Instantiate(Resources.Load("SceneOptionTransporter") as GameObject).GetComponent<SceneOptionTransporter>();
         transporter.sceneOption = option;
-        LoadSceneWithFadeStatic(name);
+        SceneManager.LoadScene(name);
     }
 
     public static string GetNowSceneName()
@@ -37,19 +36,6 @@ public class SceneLoader : MonoBehaviour
     public static void ReloadScene()
     {
         LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public static void LoadSceneWithFadeStatic(string name)
-    {
-        FadeUI[] fadePanels = FindObjectsOfType<FadeUI>();
-        foreach (var fadePanel in fadePanels)
-        {
-            fadePanel.m_OnFadeInEnd += (obj) =>
-          {
-              LoadScene(name);
-          };
-            fadePanel.FadeIn();
-        }
     }
 
     public void LoadSceneWithFade(string name)
