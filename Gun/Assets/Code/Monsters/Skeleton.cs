@@ -28,7 +28,10 @@ public class Skeleton : PlayObject
         isAttack = true;
         my = MYSTATE.NONE;
         type = TYPE.TOPAZ;
-        
+    }
+
+    void Start()
+    {
         attack.SetAttack(attackPower);
         defens.SetDefens(5);
     }
