@@ -32,7 +32,9 @@ public class RoutePicker : MonoBehaviour, IPointerClickHandler, IPointerUpHandle
             Destroy(transform.parent.GetChild(i).gameObject);
         }
 
-        traveler.ChangeSpot(spot);    
+        SceneLoader.LoadScene("BattleScene", spot.sceneOption);
+
+        // traveler.ChangeSpot(spot);    
     }
 
     public void OnPointerUp(PointerEventData eventData)
