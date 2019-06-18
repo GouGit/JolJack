@@ -13,6 +13,8 @@ public class Vibration : MonoBehaviour {
     public static AndroidJavaClass vibrationEffectClass;
     public static int defaultAmplitude;
 
+    private UnityEngine.UI.Text m_VibrationText;
+
     /*
      * "CreateOneShot": One time vibration
      * "CreateWaveForm": Waveform vibration
@@ -29,6 +31,8 @@ public class Vibration : MonoBehaviour {
     {
         Factor = value;
         Factor = Mathf.Clamp(Factor, 0, 1);
+        if(m_VibrationText != null)
+            m_VibrationText.text = ((int)(value * 100)).ToString() + "%";
         PlayerPrefs.SetFloat(PlayerPrefsKey, Factor);
         PlayerPrefs.Save();
     }
@@ -44,6 +48,8 @@ public class Vibration : MonoBehaviour {
             defaultAmplitude = vibrationEffectClass.GetStatic<int>("DEFAULT_AMPLITUDE");
         }
 #endif
+        m_VibrationText = GameObject.Find("VibrationText").GetComponent<UnityEngine.UI.Text>();
+
         // 데이터가 저장되어있지 않으면 기본값 (1)로 설정
         Factor = PlayerPrefs.GetFloat(PlayerPrefsKey, -1);
         if (Factor == -1)
@@ -55,6 +61,7 @@ public class Vibration : MonoBehaviour {
         if(SceneLoader.GetNowSceneIndex() == 0)
         {
             GameObject.Find("VibrationController").transform.GetChild(0).GetComponent<UnityEngine.UI.Slider>().value = Factor;
+            m_VibrationText.text = ((int)(Factor * 100)).ToString() + "%";
         }
     }
 
