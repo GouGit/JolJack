@@ -572,7 +572,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 49370262}
-  - {fileID: 1133199246}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -760,131 +759,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1133199246 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1211260838}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1211260838
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 476723540}
-    m_Modifications:
-    - target: {fileID: 1444509077451986586, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_Name
-      value: FadePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444509077451986587, guid: 7220854e9793e734686dc9d38630ee7a,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7220854e9793e734686dc9d38630ee7a, type: 3}
 --- !u!1 &1257631205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,11 +923,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275741467283866448, guid: 5076b9f0fe1ca424fac0360b77de6d49,
         type: 3}
-      propertyPath: sceneOption.objectList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275741467283866448, guid: 5076b9f0fe1ca424fac0360b77de6d49,
-        type: 3}
       propertyPath: nextRoutes.Array.data[0]
       value: 
       objectReference: {fileID: 149570380}
@@ -1062,12 +931,6 @@ PrefabInstance:
       propertyPath: sceneOption.type
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5275741467283866448, guid: 5076b9f0fe1ca424fac0360b77de6d49,
-        type: 3}
-      propertyPath: sceneOption.objectList.Array.data[0]
-      value: 
-      objectReference: {fileID: 7076936215295342397, guid: dc395753ed33f694191ad4768f341c30,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5076b9f0fe1ca424fac0360b77de6d49, type: 3}
 --- !u!1 &1955658394
