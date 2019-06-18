@@ -17,6 +17,12 @@ public class Skeleton : PlayObject
 
     void Awake()
     {
+        attack = GameObject.Find("attackUI").GetComponent<ShowMotion>();
+        defens = GameObject.Find("StateUI").transform.Find("defensUI").GetComponent<ShowMotion>();
+        DefensUI = GameObject.Find("StateUI").transform.Find("MonsterDefens").GetComponent<OnDefens>();
+
+        GameObject.Find("Hpbar").transform.GetChild(1).GetComponent<Hpbar>().myObject = this;
+
         hp = 40;
         attackPower = 5;
         isAttack = true;

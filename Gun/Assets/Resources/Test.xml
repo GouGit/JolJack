@@ -12,7 +12,9 @@
         <ID>1</ID>
         <position>(-3.7, -1.8, 0.0)</position>
         <type>1</type>
-        <prefabs PrefabCount="0" />
+        <prefabs PrefabCount="1">
+          <prefab>Skeleton</prefab>
+        </prefabs>
         <spot>
           <ID>2</ID>
           <position>(-2.7, -0.8, 0.0)</position>
